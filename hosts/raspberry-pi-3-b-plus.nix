@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License along with
 # ap. If not, see <https://www.gnu.org/licenses/>.
 
-# kaos system host configuration, for a Raspberry Pi 3B+.
+# Hardware configuration for a Raspberry Pi 3B+.
 
 { modulesPath
 , swapSpace
