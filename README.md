@@ -2,8 +2,8 @@
 
 A simple NixOS configuration for making wireless access points.
 
-ap contains an SSH server for administration, and use create_ap to run and
-manage the access point.
+ap contains an SSH server for administration, and uses Network Manager and
+create_ap to run and manage the access point.
 
 # How to setup/deploy.
 
@@ -25,3 +25,8 @@ the flake path, i.e.:
 ```
 nixos-rebuild build --flake path:.#<device>
 ```
+
+If you connected it to ethernet, it should start working immediately. If
+connecting it to Wi-Fi (as a Wi-Fi repeater,) you will need to connect a
+computer to the access point, SSH into the device, and use `nmtui` to connect it
+to a wireless network.
