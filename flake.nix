@@ -26,19 +26,18 @@
         extraModules = [ ./modules ];
 
         # Arguments to include in every configuration.
-        extraSpecialArguments = { inherit inputs; };
+        extraSpecialArguments = {
+          inherit inputs;
+        } // (import ./config.nix);
     in {
       nixosConfigurations = {
-        "kaos" = nixpkgs.lib.nixosSystem rec {
+        "raspberryPi3BPlus" = nixpkgs.lib.nixosSystem rec {
           specialArgs = extraSpecialArguments // {
             inherit system;
-
-            hostName = "kaos";
-            apSSID   = "Kaos AP";
           };
 
           system  = "aarch64-linux";
-          modules = [ ./hosts/kaos.nix
+          modules = [ ./hosts/raspberry-pi-3-b-plus.nix
                     ] ++ extraModules;
         };
       };

@@ -14,22 +14,25 @@
 # You should have received a copy of the GNU General Public License along with
 # ap. If not, see <https://www.gnu.org/licenses/>.
 
-# Creates my user account for administration.
+# Creates an admin user account.
 
-{ ... }:
+{ adminUserName
+, adminSSHKeys
+, adminInitialHashedPassword
+, ... }:
 
 {
-  users.users."epiphany" = {
+  users.users."${adminUserName}" = {
     isNormalUser          = true;
-    description           = "jan Epiphany";
-    initialHashedPassword = "$y$j9T$tPqkwxEzz/qTTg4abhY08.$Zfus24pugl2Th/.EImtasVU51x39TgmSY86uKpTzv2D";
+    description           = "Admin User";
+    initialHashedPassword = adminInitialHashedPassword;
     extraGroups           = [ "wheel" ];
 
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDGAY/OkxpxpW3uFP2i4PrE43fH1KqJHGqACMVVkRKMR epiphany@godsthirdtemple" ];
+    openssh.authorizedKeys.keys = adminSSHKeys;
   };
 
-  services.openssh.settings."AllowUsers" = [ "epiphany" ];
+  services.openssh.settings."AllowUsers" = [ adminUserName ];
 
   # Makes my user a trusted user for remote rebuilding.
-  nix.settings.trusted-users = [ "epiphany" ];
+  nix.settings.trusted-users = [ adminUserName ];
 }

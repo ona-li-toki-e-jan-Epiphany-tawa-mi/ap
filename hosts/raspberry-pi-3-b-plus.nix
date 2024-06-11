@@ -16,18 +16,15 @@
 
 # kaos system host configuration, for a Raspberry Pi 3B+.
 
-{ modulesPath, ... }:
+{ modulesPath
+, swapSpace
+, lib
+, ...
+}:
 
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix")
             ];
-
-
-
-  services.create_ap.settings = {
-    "INTERNET_IFACE" = "wlp2s0";
-    "WIFI_IFACE"     = "wlp2s0";
-  };
 
 
 
@@ -36,9 +33,9 @@
     fsType = "ext4";
   };
 
-  swapDevices = [{
+  swapDevices = lib.mkIf (null != swapSpace) [{
     device = "/swapfile";
-    size   = 8*1024;                              # 8 GB.
+    size   = swapSpace*1024;
   }];
 
 

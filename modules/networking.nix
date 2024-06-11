@@ -15,41 +15,35 @@
 # ap. If not, see <https://www.gnu.org/licenses/>.
 
 # Networking code.
-#
-# NOTE: make sure to set services.create_ap.settings.INTERNET_IFACE and
-# services.create_ap.settings.INTERNET_IFACE.
-# NOTE: you will have to create a file called "ap-password.nix" in the base of
-# this project with the password for the access point.
 
 { hostName
-, apSSID
+, ssid
+, password
+, internetInterface
+, wifiInterface
+, macAddressMode
 , ...
 }:
 
 {
-  imports = [ ./ssh.nix
-              ./epiphany.nix
-            ];
-
-
-
   networking.hostName = hostName;
 
   # Network Manager is used to set the network to be an access point for.
   networking.networkmanager = {
     enable = true;
 
-    # MAC address randomization because why not.
-    ethernet.macAddress = "random";
-    wifi.macAddress     = "random";
+    ethernet.macAddress = macAddressMode;
+    wifi.macAddress     = macAddressMode;
   };
 
   # Core functionality.
   services.create_ap = {
     enable   = true;
     settings = {
-      "SSID"       = apSSID;
-      "PASSPHRASE" = import ../ap-password.nix;
+      "SSID"           = ssid;
+      "PASSPHRASE"     = password;
+      "INTERNET_IFACE" = internetInterface;
+      "WIFI_IFACE"     = wifiInterface;
     };
   };
 }

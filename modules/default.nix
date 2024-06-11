@@ -20,12 +20,13 @@
 , pkgs
 , lib
 , system
+, timeZone
 , ...
 }:
 
 {
   imports = [ ./ssh.nix
-              ./epiphany.nix
+              ./admin.nix
               ./networking.nix
             ];
 
@@ -61,8 +62,7 @@
 
 
 
-  # Sets time zone. Totally correct bro, don't even think about it bro.
-  time.timeZone = "Africa/Windhoek";
+  time.timeZone = timeZone;
 
   # Selects internationalisation properties.
   i18n = {
