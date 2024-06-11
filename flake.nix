@@ -20,9 +20,7 @@
   inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-23.11;
 
   outputs = { nixpkgs, ... } @ inputs:
-    let # Extra nixpkgs channels to include.
-
-        # Modules to include in every configuration.
+    let # Modules to include in every configuration.
         extraModules = [ ./modules ];
 
         # Arguments to include in every configuration.
