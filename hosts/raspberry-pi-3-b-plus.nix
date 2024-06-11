@@ -40,6 +40,11 @@
 
 
 
+  # The Pi has low entropy so we need haveged to help top it up.
+  services.haveged.enable = true;
+
+
+
   boot.initrd.availableKernelModules = [ "usbhid" ];
 
   boot.loader = {
