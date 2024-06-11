@@ -19,7 +19,8 @@
 { adminUserName
 , adminSSHKeys
 , adminInitialHashedPassword
-, ... }:
+, ...
+}:
 
 {
   users.users."${adminUserName}" = {

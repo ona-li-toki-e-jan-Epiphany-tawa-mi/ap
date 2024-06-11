@@ -32,10 +32,6 @@
 
 
 
-  security.sudo.execWheelOnly = true;
-
-
-
   nixpkgs.hostPlatform = system;
 
   # Enables flakes for truly reproduceable builds.
@@ -81,6 +77,8 @@
   };
 
 
+
+  security.sudo.execWheelOnly = true;
 
   # Baller CPU scheduler.
   services.system76-scheduler.enable = true;
