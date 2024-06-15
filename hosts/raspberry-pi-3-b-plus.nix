@@ -19,6 +19,7 @@
 { modulesPath
 , swapSpace
 , lib
+, swapFile
 , ...
 }:
 
@@ -34,7 +35,7 @@
   };
 
   swapDevices = lib.mkIf (null != swapSpace) [{
-    device = "/swapfile";
+    device = swapFile;
     size   = swapSpace*1024;
   }];
 

@@ -1,3 +1,5 @@
+# -*- nix -*-
+
 # This file is part of ap.
 #
 # Copyright (c) 2024 ona-li-toki-e-jan-Epiphany-tawa-mi
@@ -25,6 +27,7 @@
   # The amount of disk space to allocate for swap in GiB. Set to null to
   # disable.
   swapSpace = null;
+  swapFile  = "/swapfile";
 
 
 
