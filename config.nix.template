@@ -42,7 +42,7 @@
   # The mode to set for the interface MAC addresses. See
   # networking.networkmanager.wifi.macAddress or
   # networking.networkmanager.ethernet.macAddress for details.
-  macAddressMode = "";
+  macAddressMode = "preserve";
 
 
 
