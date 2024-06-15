@@ -21,6 +21,7 @@
 , lib
 , system
 , timeZone
+, extraAPModule
 , ...
 }:
 
@@ -28,6 +29,7 @@
   imports = [ ./ssh.nix
               ./admin.nix
               ./networking.nix
+              extraAPModule                       # From configuration.
             ];
 
 

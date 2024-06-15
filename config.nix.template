@@ -56,4 +56,10 @@
   # The intial (or permanent, if you don't change it via passwd later) password
   # for your user account. Use mkpasswd to generate a password hash.
   adminInitialHashedPassword = "";
+
+
+
+  extraAPModule = { ... }: {
+
+  };
 }
