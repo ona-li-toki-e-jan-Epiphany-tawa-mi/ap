@@ -22,12 +22,13 @@
 # You can use the following command to build this/these derivation(s):
 #   nix-build release.nix -A <attribute>
 
-{ nixpkgs ? builtins.fetchTarball "https://github.com/NixOS/nixpkgs/tarball/23.11" }:
+{ nixpkgs ? builtins.fetchTarball "https://github.com/NixOS/nixpkgs/tarball/23.11"
+, src     ? ./.
+}:
 
 let pkgs = (import nixpkgs {});
 
     name = "ap";
-    src  = ./.;
 in
 {
   # Makes tarballs of the source code.
