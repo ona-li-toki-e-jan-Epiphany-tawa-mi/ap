@@ -25,6 +25,8 @@
 , ...
 }:
 
+let inherit (lib) mkForce;
+in
 {
   imports = [ ./ssh.nix
               ./admin.nix
@@ -87,7 +89,7 @@
 
   # System management.
   environment = {
-    defaultPackages = lib.mkForce [];
+    defaultPackages = mkForce [];
     systemPackages  = [ pkgs.htop ];
   };
 

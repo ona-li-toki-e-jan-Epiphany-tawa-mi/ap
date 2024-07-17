@@ -23,6 +23,8 @@
 , ...
 }:
 
+let inherit (lib) mkIf;
+in
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix")
             ];
@@ -34,7 +36,7 @@
     fsType = "ext4";
   };
 
-  swapDevices = lib.mkIf (null != swapSpace) [{
+  swapDevices = mkIf (null != swapSpace) [{
     device = swapFile;
     size   = swapSpace*1024;
   }];

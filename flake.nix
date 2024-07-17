@@ -24,19 +24,14 @@
         extraModules = [ ./modules ];
 
         # Arguments to include in every configuration.
-        extraSpecialArguments = {
-          inherit inputs;
-        } // (import ./config.nix);
+        extraSpecialArguments = { inherit inputs; } // (import ./config.nix);
     in {
       nixosConfigurations = {
         "raspberryPi3BPlus" = nixpkgs.lib.nixosSystem rec {
-          specialArgs = extraSpecialArguments // {
-            inherit system;
-          };
+          specialArgs = extraSpecialArguments // { inherit system; };
 
           system  = "aarch64-linux";
-          modules = [ ./hosts/raspberry-pi-3-b-plus.nix
-                    ] ++ extraModules;
+          modules = [ ./hosts/raspberry-pi-3-b-plus.nix ] ++ extraModules;
         };
       };
     };
