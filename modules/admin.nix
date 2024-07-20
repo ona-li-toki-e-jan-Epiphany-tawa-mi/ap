@@ -27,7 +27,7 @@
     isNormalUser          = true;
     description           = "Admin User";
     initialHashedPassword = adminInitialHashedPassword;
-    extraGroups           = [ "wheel" ];
+    extraGroups           = [ "wheel" "networkmanager" ];
 
     openssh.authorizedKeys.keys = adminSSHKeys;
   };
