@@ -17,7 +17,7 @@
 {
   description = "NixOS configuration flake for badass reproducable access points";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
   outputs = { nixpkgs, ... } @ inputs:
     let # Modules to include in every configuration.
