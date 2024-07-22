@@ -62,6 +62,8 @@
 
 
 
+  # The Nix in here evaluates as an additional NixOS module. Use this to specify
+  # any configuration that is not handled by the other options.
   extraAPModule = { ... }: {
 
   };
