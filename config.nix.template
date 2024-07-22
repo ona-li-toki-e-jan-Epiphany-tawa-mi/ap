@@ -42,6 +42,9 @@
   # (must be a Wi-Fi interface.)
   wifiInterface = "";
 
+  # The gateway address of the access point.
+  gatewayAddress = "192.168.12.1";
+
   # The mode to set for the interface MAC addresses. See
   # networking.networkmanager.wifi.macAddress or
   # networking.networkmanager.ethernet.macAddress for details.

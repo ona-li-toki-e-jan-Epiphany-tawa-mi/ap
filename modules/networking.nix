@@ -22,6 +22,7 @@
 , internetInterface
 , wifiInterface
 , macAddressMode
+, gatewayAddress
 , ...
 }:
 
@@ -44,6 +45,7 @@
       "PASSPHRASE"     = password;
       "INTERNET_IFACE" = internetInterface;
       "WIFI_IFACE"     = wifiInterface;
+      "GATEWAY"        = gatewayAddress;
     };
   };
 }
